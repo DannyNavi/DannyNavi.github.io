@@ -9,9 +9,10 @@ connectDB();
 
 const app = express();
 const cors = require('cors');
-app.use(cors({
-  origin: 'https://DannyNavi.github.io'
-}));
+// app.use(cors({
+//   origin: 'https://DannyNavi.github.io'
+// }));
+app.use(cors());
 
 // Middleware to parse JSON bodies
 app.use(express.json());
