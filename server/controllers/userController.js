@@ -54,9 +54,6 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
-const User = require('../models/User');
-const asyncHandler = require('express-async-handler');
-
 const getAllUsers = asyncHandler(async (req, res) => {
   const users = await User.find({});
   res.json(users);
