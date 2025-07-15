@@ -8,6 +8,10 @@ dotenv.config();
 connectDB();
 
 const app = express();
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://DannyNavi.github.io'
+}));
 
 // Middleware to parse JSON bodies
 app.use(express.json());
