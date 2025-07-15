@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const User = require('./models/User');
+const Client = require('./models/Client');
 const connectDB = require('./config/db');
 
 dotenv.config();
 
 connectDB();
 
-const users = [
+const clients = [
   {
     name: 'Alice',
     email: 'alice@example.com',
@@ -27,15 +27,15 @@ const users = [
 
 const importData = async () => {
   try {
-    // Clear existing users
-    await User.deleteMany();
+    // Clear existing clients
+    await Client.deleteMany();
 
-    // Insert test users
-    for (const user of users) {
-      await User.create(user);
+    // Insert test clients
+    for (const client of clients) {
+      await Client.create(client);
     }
 
-    console.log('Test users added!');
+    console.log('Test clients added!');
     process.exit();
   } catch (error) {
     console.error(`Error: ${error}`);

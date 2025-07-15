@@ -15,7 +15,7 @@ connectDB();
 app.use(cors());
 
 // Serve API routes
-app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/clients', require('./routes/clientRoutes'));
 
 // Serve React frontend
 app.use(express.static(path.join(__dirname, '../pretty-hair/build')));

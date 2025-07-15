@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const UserForm = () => {
+const ClientForm = () => {
   const {
     register,
     handleSubmit,
@@ -10,7 +10,7 @@ const UserForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('/api/users/register', {
+      const response = await fetch('/api/clients/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ const UserForm = () => {
       if (!response.ok) throw new Error('Failed to submit form');
 
       const result = await response.json();
-      alert('User created successfully!');
+      alert('Client created successfully!');
     } catch (error) {
       console.error('Submission error:', error);
       alert('Something went wrong.');
@@ -74,4 +74,4 @@ const UserForm = () => {
   );
 };
 
-export default UserForm;
+export default ClientForm;

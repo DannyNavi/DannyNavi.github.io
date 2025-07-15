@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import './clientbookstyles.css' 
 
 function ClientBook(){
-    const [users, setUsers] = useState([]);
+    const [clients, setClients] = useState([]);
 
 
     useEffect(() => {
-    fetch('https://dannynavi-github-io.onrender.com/api/clients') // Update this to your actual backend route
+    fetch('https://dannynavi-github-io.onrender.com/api/users') // Update this to your actual backend route
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -14,18 +14,18 @@ function ClientBook(){
         return response.json(); // parse JSON from response
       })
       .then((data) => {
-        setUsers(data); // set state with user data
+        setClients(data); // set state with client data
       })
       .catch((error) => {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching clients:', error);
       });
   }, []);
 
 
     return(
         <div className="ClientBookContainer">
-            {users.map((user) => (
-                <h2 key={user._id}>{user.name}</h2>
+            {clients.map((client) => (
+                <h2 key={client._id}>{client.name}</h2>
             ))}
         </div>
     )

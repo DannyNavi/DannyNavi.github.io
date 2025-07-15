@@ -13,8 +13,8 @@ function Logo(){
             </Link>
 
             <div className="NavLinks">
-                <Link className="App-link" to="/services">Services</Link>
-                <Link className="App-link" to="/about">About</Link>
+                <Link className="App-link" to="/clientbook">Client Book</Link>
+                <Link className="App-link" to="/addclient">Add a Client</Link>
             </div>
         </div>
     )

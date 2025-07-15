@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-const userSchema = mongoose.Schema(
+const clientSchema = mongoose.Schema(
   {
     name: { type: String, required: true },
     email: {
@@ -16,17 +16,17 @@ const userSchema = mongoose.Schema(
 );
 
 // Encrypt password before saving
-userSchema.pre('save', async function (next) {
+clientSchema.pre('save', async function (next) {
   if (!this.isModified('password')) next();
 
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-userSchema.methods.matchPassword = async function (enteredPassword) {
+clientSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
-const User = mongoose.model('User', userSchema);
+const Client = mongoose.model('Client', clientSchema);
 
-module.exports = User;
+module.exports = Client;
