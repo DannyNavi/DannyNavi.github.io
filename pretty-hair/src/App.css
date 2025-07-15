@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
+
+.App {
+  text-align: center;
+  background-color: antiquewhite;
+}
+
+body{
+  background-color: antiquewhite;
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Head{
+  padding-left: 40px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  text-align: left;
+  font-family: "Seymour One", sans-serif;  
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid burlywood;
+  background-color: antiquewhite;
+}
+
+.App-link{
+  text-decoration: none;
+  color: teal;
+  padding: 40px;
+  font-size: x-large;
+}
+
+.Logo{
+  text-decoration: none;
+  justify-content: left;
+  color: teal;
+
+}
+
+.HomeContainer{
+  padding-left: 40px;
+  font-family: "Seymour One", sans-serif;
+  text-align: left;
+  color: teal;
+}
+
+.opening{
+  display: flex;
+}
+
+.days{
+  font-size: large;
+  padding-right: 60px;
+}
+
+.times{
+  font-size: large;
+}
+
+.closed{
+  font-size: large;
+  padding-left: 150px;
+}
