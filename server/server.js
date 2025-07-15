@@ -1,8 +1,13 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const connectDB = require('./config/db')
+require('dotenv').config();
+
 
 const app = express();
+connectDB();
+
 
 // CORS for local development or if frontend is separate
 app.use(cors());

@@ -16,7 +16,7 @@ function Home(){
                     
                 </div>
 
-            <div className="opening">
+            {/* <div className="opening">
                 <div className="days">
                     <p>Sunday</p>
                 </div>
@@ -24,7 +24,7 @@ function Home(){
                 <div className="closed">
                     <p>Closed</p>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
