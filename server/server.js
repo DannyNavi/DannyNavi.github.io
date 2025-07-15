@@ -1,31 +1,21 @@
 const express = require('express');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-const userRoutes = require('./routes/userRoutes');
-
-dotenv.config();
-
-connectDB();
+const path = require('path');
+const cors = require('cors');
 
 const app = express();
-const cors = require('cors');
-// app.use(cors({
-//   origin: 'https://DannyNavi.github.io'
-// }));
+
+// CORS for local development or if frontend is separate
 app.use(cors());
 
-// Middleware to parse JSON bodies
-app.use(express.json());
+// Serve API routes
+app.use('/api/users', require('./routes/userRoutes'));
 
-// Routes
-app.use('/api/clients', userRoutes);
+// Serve React frontend
+app.use(express.static(path.join(__dirname, '../pretty-hair/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../pretty-hair/build/index.html'));
+});
 
 const PORT = process.env.PORT || 5000;
-
-app.get('/', (req, res) => {
-  res.send('API is running...');
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
