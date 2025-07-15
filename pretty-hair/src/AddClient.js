@@ -10,7 +10,7 @@ const UserForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('/api/users', {
+      const response = await fetch('/api/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
