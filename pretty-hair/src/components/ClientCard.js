@@ -7,9 +7,10 @@ function ClientCard(props){
         if (!window.confirm('Are you sure you want to delete this client?')) return;
 
         try {
-        const res = await fetch(`https://dannynavi-github-io.onrender.com/${id}`, {
+        const res = await fetch(`https://dannynavi-github-io.onrender.com/api/clients${id}`, {
             method: 'DELETE',
         });
+        console.log(id)
 
         if (!res.ok) throw new Error('Failed to delete client');
             alert(id);
