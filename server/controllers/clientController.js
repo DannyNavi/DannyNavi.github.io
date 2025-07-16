@@ -64,7 +64,6 @@ const getAllClients = asyncHandler(async (req, res) => {
 });
 
 
-// DELETE /api/clients/:id
 const deleteClient = asyncHandler(async (req, res) => {
   const client = await Client.findById(req.params.id);
 
@@ -73,7 +72,7 @@ const deleteClient = asyncHandler(async (req, res) => {
     throw new Error('Client not found');
   }
 
-  await client.remove();
+  await Client.findByIdAndDelete(req.params.id); // ✅ fix
   res.json({ message: 'Client deleted' });
 });
 
