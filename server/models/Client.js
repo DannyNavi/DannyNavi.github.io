@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+
 
 const clientSchema = mongoose.Schema(
   {
@@ -10,22 +10,31 @@ const clientSchema = mongoose.Schema(
       unique: true,
       match: /.+\@.+\..+/,
     },
-    password: { type: String, required: true },
+    address: { type: String, required: true },
+    city: { type: String, required: true },
+    state: { type: String, required: true },
+    zip: {
+      type: String,
+      required: true,
+      match: /^\d{5}$/, // 5-digit ZIP code
+    },
+    cell: {
+      type: String,
+      required: true,
+      match: /^[0-9\-+\s()]{7,15}$/, // phone number format
+    },
+    allergies: { type: String, required: false },
+    birthday: {
+      type: String,
+      required: true,
+      match: /^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/, // MM-DD format
+    },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
-// Encrypt password before saving
-clientSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) next();
-
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
-});
-
-clientSchema.methods.matchPassword = async function (enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password);
-};
 
 const Client = mongoose.model('Client', clientSchema);
 

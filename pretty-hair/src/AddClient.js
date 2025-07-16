@@ -55,18 +55,82 @@ const ClientForm = () => {
       </div>
 
       <div>
-        <label>Password:</label>
+        <label>Address:</label>
         <input
-          type="password"
-          {...register('password', {
-            required: 'Password is required',
-            minLength: {
-              value: 6,
-              message: 'Password must be at least 6 characters',
+          type="text"
+          {...register('address', { required: 'Address is required' })}
+        />
+        {errors.address && <p>{errors.address.message}</p>}
+      </div>
+
+      <div>
+        <label>City:</label>
+        <input
+          type="text"
+          {...register('city', { required: 'City is required' })}
+        />
+        {errors.city && <p>{errors.city.message}</p>}
+      </div>
+
+      <div>
+        <label>State:</label>
+        <input
+          type="text"
+          {...register('state', { required: 'State is required' })}
+        />
+        {errors.state && <p>{errors.state.message}</p>}
+      </div>
+
+      <div>
+        <label>ZIP:</label>
+        <input
+          type="text"
+          {...register('zip', {
+            required: 'ZIP code is required',
+            pattern: {
+              value: /^\d{5}$/,
+              message: 'ZIP must be 5 digits',
             },
           })}
         />
-        {errors.password && <p>{errors.password.message}</p>}
+        {errors.zip && <p>{errors.zip.message}</p>}
+      </div>
+
+      <div>
+        <label>Cell:</label>
+        <input
+          type="tel"
+          {...register('cell', {
+            required: 'Cell number is required',
+            pattern: {
+              value: /^[0-9\-+\s()]{7,15}$/,
+              message: 'Invalid phone number',
+            },
+          })}
+        />
+        {errors.cell && <p>{errors.cell.message}</p>}
+      </div>
+
+      <div>
+        <label>Allergies:</label>
+        <input type="text" {...register('allergies')} />
+        {errors.allergies && <p>{errors.allergies.message}</p>}
+      </div>
+
+      <div>
+        <label>Birthday (MM-DD):</label>
+        <input
+          type="text"
+          placeholder="MM-DD"
+          {...register('birthday', {
+            required: 'Birthday is required',
+            pattern: {
+              value: /^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/,
+              message: 'Format must be MM-DD',
+            },
+          })}
+        />
+        {errors.birthday && <p>{errors.birthday.message}</p>}
       </div>
 
       <button type="submit">Submit</button>

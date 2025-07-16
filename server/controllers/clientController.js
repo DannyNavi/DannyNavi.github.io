@@ -5,8 +5,19 @@ const generateToken = require('../utils/generateToken');
 // @desc    Register new client
 // @route   POST /api/clients/register
 // @access  Public
+
+    // name: 'Alice',
+    // email: 'alice@example.com',
+    // address: 'House on house',
+    // city: 'Portland',
+    // state: 'OR',
+    // zip: '02313',
+    // cell: '1234561212',
+    // allergies: 'No allergies',
+    // birthday: '1002'
+
 const registerClient = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, address, city, state, zip, cell, allergies, birthday } = req.body;
 
   const clientExists = await Client.findOne({ email });
   if (clientExists) {
@@ -17,7 +28,13 @@ const registerClient = asyncHandler(async (req, res) => {
   const client = await Client.create({
     name,
     email,
-    password,
+    address,
+    city,
+    state,
+    zip,
+    cell,
+    allergies,
+    birthday
   });
 
   if (client) {
@@ -25,6 +42,13 @@ const registerClient = asyncHandler(async (req, res) => {
       _id: client._id,
       name: client.name,
       email: client.email,
+      address: client.address,
+      city: client.city,
+      state: client.state,
+      zip: client.zip,
+      cell: client.cell,
+      allergies: client.allergies,
+      birthday: client.birthday,
       token: generateToken(client._id),
     });
   } else {
@@ -33,26 +57,6 @@ const registerClient = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Authenticate client & get token
-// @route   POST /api/clients/login
-// @access  Public
-const authClient = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
-
-  const client = await Client.findOne({ email });
-
-  if (client && (await client.matchPassword(password))) {
-    res.json({
-      _id: client._id,
-      name: client.name,
-      email: client.email,
-      token: generateToken(client._id),
-    });
-  } else {
-    res.status(401);
-    throw new Error('Invalid email or password');
-  }
-});
 
 const getAllClients = asyncHandler(async (req, res) => {
   const clients = await Client.find({});
@@ -60,4 +64,4 @@ const getAllClients = asyncHandler(async (req, res) => {
 });
 
 
-module.exports = { registerClient, authClient, getAllClients };
+module.exports = { registerClient, getAllClients };
