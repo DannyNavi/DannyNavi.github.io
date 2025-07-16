@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import '../styles/AddClient.css'
 
 const ClientForm = () => {
   const {
@@ -29,11 +30,12 @@ const ClientForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="clientform" onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label>Name:</label>
         <input
           type="text"
+          autoComplete="off"
           {...register('name', { required: 'Name is required' })}
         />
         {errors.name && <p>{errors.name.message}</p>}
@@ -43,6 +45,7 @@ const ClientForm = () => {
         <label>Email:</label>
         <input
           type="email"
+          autoComplete="off"
           {...register('email', {
             required: 'Email is required',
             pattern: {
@@ -58,6 +61,7 @@ const ClientForm = () => {
         <label>Address:</label>
         <input
           type="text"
+          autoComplete="off"
           {...register('address', { required: 'Address is required' })}
         />
         {errors.address && <p>{errors.address.message}</p>}
@@ -85,6 +89,7 @@ const ClientForm = () => {
         <label>ZIP:</label>
         <input
           type="text"
+          autoComplete="off"
           {...register('zip', {
             required: 'ZIP code is required',
             pattern: {
@@ -100,6 +105,7 @@ const ClientForm = () => {
         <label>Cell:</label>
         <input
           type="tel"
+          autoComplete="off"
           {...register('cell', {
             required: 'Cell number is required',
             pattern: {
@@ -121,6 +127,7 @@ const ClientForm = () => {
         <label>Birthday (MM-DD):</label>
         <input
           type="text"
+          autoComplete="off"
           placeholder="MM-DD"
           {...register('birthday', {
             required: 'Birthday is required',

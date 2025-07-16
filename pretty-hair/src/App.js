@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Logo from './Logo';
-import Home from './Home';
-import ClientBook from './ClientBook';
-import AddClient from './AddClient'
+import './styles/App.css';
+import Logo from './components/Logo';
+import Home from './components/Home';
+import ClientBook from './components/ClientBook';
+import AddClient from './components/AddClient'
 
 function App() {
   return (

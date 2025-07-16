@@ -1,0 +1,17 @@
+.clientform{
+    font-size: xx-large;
+}
+
+label{
+    font-family: "Seymour One", sans-serif;  
+    padding-right: 10px;
+    color: teal;
+}
+
+input{
+    font-size: xx-large;
+}
+
+button{
+    font-size: large;
+}
