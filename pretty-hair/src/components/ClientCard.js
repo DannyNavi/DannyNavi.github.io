@@ -22,7 +22,7 @@ function ClientCard(props){
 
     return(
         <div key={client._id} className="client-card" style={{ border: '1px solid #ccc', padding: '1rem', margin: '1rem 0' }}>
-            <button onClick={deleteClient(client._id)}>Delete</button>
+            <button onClick={() => deleteClient(client._id)}>Delete</button>
             <h2>{client.name}</h2>
             <p><strong>Email:</strong> {client.email}</p>
             <p><strong>Address:</strong> {client.address}</p>
