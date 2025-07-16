@@ -1,9 +1,6 @@
 const express = require('express');
-const { registerClient} = require('../controllers/clientController');
-
+const { registerClient, deleteClient, getAllClients } = require('../controllers/clientController');
 const router = express.Router();
-const { getAllClients } = require('../controllers/clientController');
-
 
 router.post('/register', registerClient);
 
