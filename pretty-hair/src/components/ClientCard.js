@@ -12,7 +12,7 @@ function ClientCard(props){
         });
 
         if (!res.ok) throw new Error('Failed to delete client');
-        alert('Client deleted!');
+            alert(id);
         // You can call a prop function here to refresh the client list if needed
         } catch (err) {
         console.error(err);
