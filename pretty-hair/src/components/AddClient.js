@@ -1,4 +1,4 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import '../styles/AddClient.css'
 
@@ -8,6 +8,8 @@ const ClientForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const navigate = useNavigate()
 
   const onSubmit = async (data) => {
     try {
@@ -21,8 +23,11 @@ const ClientForm = () => {
 
       if (!response.ok) throw new Error('Failed to submit form');
 
-      const result = await response.json();
-      alert('Client created successfully!');
+        const result = await response.json();
+        navigate('/clientbook');
+
+
+
     } catch (error) {
       console.error('Submission error:', error);
       alert('Something went wrong.');

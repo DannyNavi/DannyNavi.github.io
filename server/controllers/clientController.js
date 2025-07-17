@@ -2,20 +2,6 @@ const asyncHandler = require('express-async-handler');
 const Client = require('../models/Client');
 const generateToken = require('../utils/generateToken');
 
-// @desc    Register new client
-// @route   POST /api/clients/register
-// @access  Public
-
-    // name: 'Alice',
-    // email: 'alice@example.com',
-    // address: 'House on house',
-    // city: 'Portland',
-    // state: 'OR',
-    // zip: '02313',
-    // cell: '1234561212',
-    // allergies: 'No allergies',
-    // birthday: '1002'
-
 const registerClient = asyncHandler(async (req, res) => {
   const { name, email, address, city, state, zip, cell, allergies, birthday } = req.body;
 
