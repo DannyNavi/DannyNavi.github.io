@@ -63,6 +63,44 @@ const getAllClients = asyncHandler(async (req, res) => {
   res.json(clients);
 });
 
+const getClientById = asyncHandler(async (req, res) => {
+  const client = await Client.findById(req.params.id);
+
+  if (!client) {
+    res.status(404);
+    throw new Error('Client not found');
+  }
+
+  res.json(client);
+});
+
+const updateClient = asyncHandler(async (req, res) => {
+  const client = await Client.findById(req.params.id);
+  if (!client) {
+    res.status(404);
+    throw new Error('Client not found');
+  }
+
+  // Loop through only fields you allow updating
+  const allowedFields = [
+    'email',
+    'address',
+    'city',
+    'state',
+    'zip',
+    'cell',
+    'allergies'
+  ];
+
+  allowedFields.forEach(field => {
+    if (req.body[field] !== undefined && req.body[field] !== '') {
+      client[field] = req.body[field];
+    }
+  });
+
+  const updatedClient = await client.save();
+  res.json(updatedClient);
+});
 
 const deleteClient = asyncHandler(async (req, res) => {
   const client = await Client.findById(req.params.id);
@@ -77,4 +115,4 @@ const deleteClient = asyncHandler(async (req, res) => {
 });
 
 
-module.exports = { registerClient, getAllClients, deleteClient };
+module.exports = { registerClient, getAllClients, updateClient, deleteClient, getClientById};
