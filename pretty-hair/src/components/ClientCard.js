@@ -6,7 +6,7 @@ function ClientCard(props){
         if (!window.confirm('Are you sure you want to delete this client?')) return;
 
         try {
-            const res = await fetch(`https://dannynavi-github-io.onrender.com/api/clients/${id}`, {
+            const res = await fetch(`/api/clients/${id}`, {
                 method: 'DELETE',
             });
 

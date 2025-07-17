@@ -9,7 +9,7 @@ function EditClient(){
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
 
     useEffect(() => {
-        fetch(`https://dannynavi-github-io.onrender.com/api/clients/${id}`)
+        fetch(`/api/clients/${id}`)
         .then(res => res.json())
         .then(data => {
             // Populate only editable fields
@@ -20,7 +20,7 @@ function EditClient(){
     }, [id, setValue]);
 
     const onSubmit = data => {
-        fetch(`https://dannynavi-github-io.onrender.com/api/clients/${id}`, {
+        fetch(`/api/clients/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
