@@ -10,6 +10,8 @@ label{
 
 input{
     font-size: xx-large;
+    width: 40%;
+    margin: 10px;
 }
 
 button{

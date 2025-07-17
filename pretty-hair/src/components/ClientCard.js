@@ -1,5 +1,4 @@
-import react from "react";
-
+import {Link} from "react-router-dom";
 function ClientCard(props){
     const client = props.client
 
@@ -10,10 +9,8 @@ function ClientCard(props){
         const res = await fetch(`https://dannynavi-github-io.onrender.com/api/clients/${id}`, {
             method: 'DELETE',
         });
-        console.log(id)
 
         if (!res.ok) throw new Error('Failed to delete client');
-            alert(id);
         // You can call a prop function here to refresh the client list if needed
         } catch (err) {
         console.error(err);
@@ -24,6 +21,9 @@ function ClientCard(props){
     return(
         <div key={client._id} className="client-card" style={{ border: '1px solid #ccc', padding: '1rem', margin: '1rem 0' }}>
             <button onClick={() => deleteClient(client._id)}>Delete</button>
+            <Link to={`/editclient/${client._id}`}>
+                <button>Edit</button>
+            </Link>
             <h2>{client.name}</h2>
             <p><strong>Email:</strong> {client.email}</p>
             <p><strong>Address:</strong> {client.address}</p>
