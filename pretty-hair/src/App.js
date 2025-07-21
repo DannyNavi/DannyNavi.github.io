@@ -5,6 +5,7 @@ import Home from './components/Home';
 import ClientBook from './components/ClientBook';
 import AddClient from './components/AddClient'
 import EditClient from './components/EditClient';
+import AddService from './components/AddService';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/clientbook" element={<ClientBook/>}/>
           <Route path="/addclient" element={<AddClient/>}/>
           <Route path="/editclient/:id" element ={<EditClient/>}/>
+          <Route path="/addservice" element={<AddService/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
