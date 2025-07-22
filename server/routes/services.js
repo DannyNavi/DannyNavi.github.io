@@ -1,42 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const {Client, Service} = require('../models/Models');
 
-// POST /api/services
-router.post('/', async (req, res) => {
-  try {
-    const {
-      client,
-      type,
-      date,
-      comments,
-      treatmentTypes,
-      permDetails,
-      dyeDetails,
-    } = req.body;
+const {
+  getAllServices,
+  createService,
+  getServiceById,
+  deleteService,
+} = require('../controllers/serviceController');
 
-    // Optional: validate client exists
-    const foundClient = await Client.findById(client);
-    if (!foundClient) {
-      return res.status(400).json({ error: 'Client not found' });
-    }
+// All services
+router.route('/')
+  .get(getAllServices)   // GET /api/services
+  .post(createService);  // POST /api/services
 
-    const newService = new Service({
-      client,
-      type,
-      date,
-      comments,
-      treatmentTypes,
-      permDetails: type === 'perm' ? permDetails : undefined,
-      dyeDetails: type === 'dye' ? dyeDetails : undefined,
-    });
-
-    await newService.save();
-    res.status(201).json(newService);
-  } catch (error) {
-    console.error('Error creating service:', error);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
+// Individual service by ID
+router.route('/:id')
+  .get(getServiceById)   // GET /api/services/:id
+  .delete(deleteService); // DELETE /api/services/:id
 
 module.exports = router;

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 function AddService(){
+  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
@@ -47,7 +50,9 @@ function AddService(){
         console.error('Submission failed:', errorData);
       } else {
         const result = await res.json();
-        console.log('Service created:', result);
+        navigate('/clientbook');
+
+
       }
     } catch (error) {
       console.error('Failed to submit service:', error);

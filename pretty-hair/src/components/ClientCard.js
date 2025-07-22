@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import ClientServiceLog from "./ClientServiceLog";
 function ClientCard(props){
     const client = props.client
 
@@ -35,6 +36,7 @@ function ClientCard(props){
             <p><strong>Cell:</strong> {client.cell}</p>
             <p><strong>Allergies:</strong> {client.allergies || 'None'}</p>
             <p><strong>Birthday:</strong> {client.birthday}</p>
+            <ClientServiceLog clientId={client._id}/>
         </div>
     )
 

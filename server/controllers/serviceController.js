@@ -26,7 +26,11 @@ const createService = asyncHandler(async (req, res) => {
 
 // Get all services
 const getAllServices = asyncHandler(async (req, res) => {
-  const services = await Service.find().populate('client', 'name email');
+  const filter = {};
+  if (req.query.client) {
+    filter.client = req.query.client;
+  }
+  const services = await Service.find(filter).populate('client', 'name email');
   res.json(services);
 });
 
