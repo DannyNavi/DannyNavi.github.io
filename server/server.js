@@ -17,6 +17,11 @@ app.use(cors());
 // Serve API routes
 app.use('/api/clients', require('./routes/clientRoutes'));
 
+const serviceRoutes = require('./routes/services');
+
+app.use('/api/services', serviceRoutes);
+
+
 // Serve React frontend
 app.use(express.static(path.join(__dirname, '../pretty-hair/build')));
 
