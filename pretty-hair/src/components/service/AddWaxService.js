@@ -27,7 +27,7 @@ function AddWaxService(){
         client: data.clientId,
         date: data.date,
         comments: data.comments,
-        treatmentTypes: "wax",
+        treatmentTypes: ["wax"],
         waxDetails: {
             location: data.location,
             skinType: data.skinType
