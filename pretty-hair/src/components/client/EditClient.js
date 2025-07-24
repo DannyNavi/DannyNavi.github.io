@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import '../styles/AddClient.css'
+import '../../styles/AddClient.css'
 
 function EditClient(){
     const { id } = useParams();

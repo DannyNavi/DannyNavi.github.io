@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import '../styles/AddClient.css'
+import '../../styles/AddClient.css';
 
 const ClientForm = () => {
   const {

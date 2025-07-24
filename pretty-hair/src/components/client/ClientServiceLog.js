@@ -36,7 +36,6 @@ function ClientServiceLog(props){
 
   return (
     <div>
-      <h3>Services for Client {clientId}</h3>
       <ul>
         {services.map(service => (
           <li key={service._id}>

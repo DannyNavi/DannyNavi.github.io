@@ -1,0 +1,16 @@
+.AddServiceContainer{
+    text-align: left;
+    padding-left: 40px;
+    color: teal;
+    font-family: "Seymour One", sans-serif;
+}
+
+.clientform{
+    font-size: x-large;
+    padding-bottom: 40px;
+    border-bottom: 10px solid chocolate;
+}
+
+h2{
+    text-align: center;
+}

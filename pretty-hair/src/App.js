@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
 import Logo from './components/Logo';
 import Home from './components/Home';
-import ClientBook from './components/ClientBook';
-import AddClient from './components/AddClient'
-import EditClient from './components/EditClient';
+import ClientBook from './components/client/ClientBook';
+import AddClient from './components/client/AddClient'
+import EditClient from './components/client/EditClient';
 import AddService from './components/AddService';
 
 function App() {
