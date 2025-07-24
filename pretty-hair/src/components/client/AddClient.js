@@ -13,7 +13,7 @@ const ClientForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('https://dannynavi-github-io.onrender.com/api/clients/register', {
+      const response = await fetch('/api/clients/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

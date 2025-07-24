@@ -16,7 +16,7 @@ function ClientServiceLog(props){
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`https://dannynavi-github-io.onrender.com/api/services?client=${clientId}`);
+        const response = await fetch(`/api/services?client=${clientId}`);
         if (!response.ok) throw new Error('Failed to fetch services');
         const data = await response.json();
         setServices(data);
@@ -49,6 +49,11 @@ function ClientServiceLog(props){
           <strong>Scalp Condition:</strong> {service.permDetails.scalpCondition} <br />
           <strong>Porosity:</strong> {service.permDetails.porosity} <br />
           <strong>Perm Type:</strong> {service.permDetails.type} <br />
+          {service.comments && (
+            <>
+              <strong>Comments:</strong> {service.comments} <br />
+            </>
+          )}        
         </div>
       )}
 
@@ -58,6 +63,11 @@ function ClientServiceLog(props){
           <strong>Porosity:</strong> {service.dyeDetails.porosity} <br />
           <strong>Dye Type:</strong> {service.dyeDetails.type} <br />
           <strong>Color Treatment:</strong> {service.dyeDetails.colorTreatment} <br />
+          {service.comments && (
+            <>
+              <strong>Comments:</strong> {service.comments} <br />
+            </>
+          )}        
         </div>
       )}
 
@@ -65,13 +75,12 @@ function ClientServiceLog(props){
         <div className='WaxServiceContainer'>
           <strong>Location:</strong> {service.waxDetails.location} <br />
           <strong>Skin Type:</strong> {service.waxDetails.skinType} <br />
+          {service.comments && (
+            <>
+              <strong>Comments:</strong> {service.comments} <br />
+            </>
+          )}
         </div>
-      )}
-
-      {service.comments && (
-        <>
-          <strong>Comments:</strong> {service.comments} <br />
-        </>
       )}
           </li>
         ))}

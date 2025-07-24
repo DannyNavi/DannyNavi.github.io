@@ -15,7 +15,7 @@ function AddWaxService(){
 
     // Fetch clients using fetch()
     useEffect(() => {
-        fetch('https://dannynavi-github-io.onrender.com/api/clients')
+        fetch('/api/clients')
         .then((res) => res.json())
         .then((data) => setClients(data))
         .catch((err) => console.error('Failed to fetch clients:', err));
@@ -34,7 +34,7 @@ function AddWaxService(){
         },
     };
     try {
-      const res = await fetch('https://dannynavi-github-io.onrender.com/api/services', {
+      const res = await fetch('/api/services', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

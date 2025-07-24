@@ -8,18 +8,30 @@ ul {
 }
 
 li{
-    padding-left: 10px;
+    padding-bottom: 15px;
+    border-right: 1px burlywood solid;
+    padding-left: 30px;
 }
 
 .DyeServiceContainer{
     text-align: left;
     padding-bottom: 20px;
+    margin: 15px;
 }
 
 .PermServiceContainer{
     text-align: left;
     padding-bottom: 20px;
+    margin: 15px;
+    
 }
+
+.WaxServiceContainer{
+    text-align: left;
+    padding-bottom: 20px;
+    margin: 15px;
+}
+
 
 .client-card{
     width: 30%;
