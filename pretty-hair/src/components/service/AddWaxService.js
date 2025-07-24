@@ -23,7 +23,7 @@ function AddWaxService(){
 
     const onSubmit = async (data) => {
         const payload = {
-        type: 'perm',
+        type: 'wax',
         client: data.clientId,
         date: data.date,
         comments: data.comments,

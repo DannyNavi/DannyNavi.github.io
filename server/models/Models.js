@@ -22,7 +22,6 @@ const dyeDetailsSchema = new mongoose.Schema({
 const waxDetailsSchema = new mongoose.Schema({
   location: {type: String, enum: ['eyebrows', 'lip', 'chin', 'body'], required: true},
   skinType: {type: String, enum: ['normal', 'sensitive']},
-  comment: {type: String},
   
 }, {_id: false});
 
