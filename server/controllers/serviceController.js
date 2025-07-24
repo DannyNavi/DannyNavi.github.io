@@ -19,6 +19,7 @@ const createService = asyncHandler(async (req, res) => {
     client,
     permDetails,
     dyeDetails,
+    waxDetails,
   });
 
   res.status(201).json(service);

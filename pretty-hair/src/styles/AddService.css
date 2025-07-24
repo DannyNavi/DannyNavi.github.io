@@ -11,6 +11,10 @@
     border-bottom: 10px solid chocolate;
 }
 
+input{
+    width: 20%;
+}
+
 h2{
     text-align: left;
 }
