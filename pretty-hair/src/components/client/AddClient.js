@@ -21,12 +21,10 @@ const ClientForm = () => {
         body: JSON.stringify(data),
       });
 
-      console.log("Submitting:", data);
-
-
       if (!response.ok) throw new Error('Failed to submit form');
 
         const result = await response.json();
+        console.log("Submitting:", data);
         navigate('/clientbook');
 
 
