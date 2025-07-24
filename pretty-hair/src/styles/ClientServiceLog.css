@@ -3,6 +3,8 @@ ul {
   padding: 0;
   text-align: left;
   display: flex;
+  flex-wrap: wrap;
+  font-size: small;
 }
 
 li{
@@ -20,5 +22,6 @@ li{
 }
 
 .client-card{
-    width: 50%;
+    width: 30%;
+    font-size: medium;
 }

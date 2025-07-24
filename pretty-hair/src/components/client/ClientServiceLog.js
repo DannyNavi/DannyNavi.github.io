@@ -43,11 +43,6 @@ function ClientServiceLog(props){
           <li key={service._id}>
             <strong>Type:</strong> {service.type} <br />
             <strong>Date:</strong> {new Date(service.date).toLocaleDateString()} <br />
-            {service.comments && (
-              <>
-                <strong>Comments:</strong> {service.comments} <br />
-              </>
-            )}
                   {service.type === 'perm' && service.permDetails && (
         <div className='PermServiceContainer'>
           <strong>Hair Condition:</strong> {service.permDetails.hairCondition} <br />
@@ -64,6 +59,12 @@ function ClientServiceLog(props){
           <strong>Dye Type:</strong> {service.dyeDetails.type} <br />
           <strong>Color Treatment:</strong> {service.dyeDetails.colorTreatment} <br />
         </div>
+      )}
+
+      {service.comments && (
+        <>
+          <strong>Comments:</strong> {service.comments} <br />
+        </>
       )}
           </li>
         ))}
