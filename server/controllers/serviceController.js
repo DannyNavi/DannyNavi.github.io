@@ -3,7 +3,7 @@ const { Service, Client } = require('../models/Models');
 
 // Create a service
 const createService = asyncHandler(async (req, res) => {
-  const { type, date, comments, client, permDetails, dyeDetails } = req.body;
+  const { type, date, comments, client, permDetails, dyeDetails, waxDetails } = req.body;
 
   // Validate client exists
   const foundClient = await Client.findById(client);
