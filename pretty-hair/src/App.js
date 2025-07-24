@@ -5,7 +5,7 @@ import Home from './components/Home';
 import ClientBook from './components/client/ClientBook';
 import AddClient from './components/client/AddClient'
 import EditClient from './components/client/EditClient';
-import AddService from './components/AddService';
+import AddService from './components/service/AddService';
 
 function App() {
   return (

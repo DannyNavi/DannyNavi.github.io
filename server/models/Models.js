@@ -19,6 +19,13 @@ const dyeDetailsSchema = new mongoose.Schema({
   },
 }, { _id: false });
 
+const waxDetailsSchema = new mongoose.Schema({
+  location: {type: String, enum: ['eyebrows', 'lip', 'chin', 'body'], required: true},
+  skinType: {type: String, enum: ['normal', 'sensitive']},
+  comment: {type: String},
+  
+}, {_id: false});
+
 // --- Service Schema ---
 const serviceSchema = new mongoose.Schema({
   type: { type: String, enum: ['wax', 'perm', 'dye'], required: true },
@@ -32,6 +39,10 @@ const serviceSchema = new mongoose.Schema({
   dyeDetails: {
     type: dyeDetailsSchema,
     required: function () { return this.type === 'dye'; },
+  },
+  waxDetails: {
+    type: waxDetailsSchema,
+    required: function () { return this.type === 'wax'; },
   },
 }, { timestamps: true });
 
