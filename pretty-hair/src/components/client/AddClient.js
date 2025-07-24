@@ -13,13 +13,16 @@ const ClientForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('/api/clients/register', {
+      const response = await fetch('https://dannynavi-github-io.onrender.com/api/clients/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
+
+      console.log("Submitting:", data);
+
 
       if (!response.ok) throw new Error('Failed to submit form');
 

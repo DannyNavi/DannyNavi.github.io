@@ -1,0 +1,24 @@
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+  display: flex;
+}
+
+li{
+    padding-left: 10px;
+}
+
+.DyeServiceContainer{
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+.PermServiceContainer{
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+.client-card{
+    width: 50%;
+}
