@@ -26,11 +26,9 @@ function AddDyeService() {
       client: data.clientId,
       date: data.date,
       comments: data.comments,
-      treatmentTypes: data.treatmentTypes?.split(',').map((t) => t.trim()),
       dyeDetails: {
         scalpCondition: Number(data.scalpCondition),
         porosity: data.porosity,
-        type: data.dyeType, // acid, alkaline, exothermic
         colorTreatment: data.colorTreatment, // semi, toned, highlights, etc.
       },
     };
@@ -58,7 +56,7 @@ function AddDyeService() {
 
   return (
     <div>
-      <h2>Dye</h2>
+      <h2>Coloring</h2>
       <form className="clientform" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label>Client:</label>
@@ -106,17 +104,6 @@ function AddDyeService() {
             <option value="normal">Normal</option>
           </select>
           {errors.porosity && <p>{errors.porosity.message}</p>}
-        </div>
-
-        <div>
-          <label>Dye Type:</label>
-          <select {...register('dyeType', { required: 'Dye type is required' })}>
-            <option value="">Select type</option>
-            <option value="exothermic">Exothermic</option>
-            <option value="acid">Acid</option>
-            <option value="alkaline">Alkaline</option>
-          </select>
-          {errors.dyeType && <p>{errors.dyeType.message}</p>}
         </div>
 
         <div>

@@ -28,7 +28,6 @@ function AddPermService(){
       client: data.clientId,
       date: data.date,
       comments: data.comments,
-      treatmentTypes: data.treatmentTypes?.split(',').map((t) => t.trim()),
       permDetails: {
         hairCondition: Number(data.hairCondition),
         scalpCondition: Number(data.scalpCondition),
@@ -84,15 +83,6 @@ function AddPermService(){
             {...register('date', { required: 'Date is required' })}
           />
           {errors.date && <p>{errors.date.message}</p>}
-        </div>
-
-        <div>
-          <label>Treatment Types (comma separated):</label>
-          <input
-            type="text"
-            placeholder="e.g. full head, sensitive scalp"
-            {...register('treatmentTypes')}
-          />
         </div>
 
         <div>

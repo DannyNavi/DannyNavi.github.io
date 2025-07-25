@@ -11,7 +11,6 @@ const permDetailsSchema = new mongoose.Schema({
 const dyeDetailsSchema = new mongoose.Schema({
   scalpCondition: { type: Number, min: 1, max: 10, required: true },
   porosity: { type: String, enum: ['extra porous', 'porous', 'normal'], required: true },
-  type: { type: String, enum: ['exothermic', 'acid', 'alkaline'], required: true },
   colorTreatment: {
     type: String,
     enum: ['semi permanent', 'toned', 'highlights', 'lowlights', 'bleached', 'henna', 'base', 'other'],
@@ -20,7 +19,7 @@ const dyeDetailsSchema = new mongoose.Schema({
 }, { _id: false });
 
 const waxDetailsSchema = new mongoose.Schema({
-  location: {type: String, enum: ['eyebrows', 'lip', 'chin', 'body'], required: true},
+  location: {type: String, enum: ['eyebrows and lip', 'eyebrows', 'lip', 'chin', 'body', 'face', 'bikini'], required: true},
   skinType: {type: String, enum: ['normal', 'sensitive']},
   
 }, {_id: false});

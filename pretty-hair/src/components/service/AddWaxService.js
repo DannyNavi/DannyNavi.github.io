@@ -27,7 +27,6 @@ function AddWaxService(){
         client: data.clientId,
         date: data.date,
         comments: data.comments,
-        treatmentTypes: ["wax"],
         waxDetails: {
             location: data.location,
             skinType: data.skinType
@@ -90,10 +89,14 @@ function AddWaxService(){
                 <label>Location:</label>
                     <select {...register('location', { required: 'Location is required' })}>
                         <option value="">Select location</option>
+                        <option value="eyebrows and lip">Eyebrows and Lip</option>
+                        <option value="face">Face</option>
                         <option value="eyebrows">Eyebrows</option>
                         <option value="lip">Lip</option>
                         <option value="chin">Chin</option>
                         <option value="body">Body</option>
+                        <option value="bikini">Bikini</option>
+
                     </select>
                     {errors.location && <p>{errors.location.message}</p>}
                 </div>
