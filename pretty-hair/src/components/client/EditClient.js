@@ -13,7 +13,7 @@ function EditClient(){
         .then(res => res.json())
         .then(data => {
             // Populate only editable fields
-            ['email','address','city','state','zip','cell','allergies','services']
+            ['email','cell','allergies','services']
             .forEach(field => setValue(field, data[field] || ''));
         })
         .catch(err => console.error(err));
@@ -45,38 +45,6 @@ function EditClient(){
         })}
         />
         {errors.email && <p>{errors.email.message}</p>}
-    </div>
-
-    <div>
-        <label>Address:</label>
-        <input type="text" {...register('address')} />
-        {errors.address && <p>{errors.address.message}</p>}
-    </div>
-
-    <div>
-        <label>City:</label>
-        <input type="text" {...register('city')} />
-        {errors.city && <p>{errors.city.message}</p>}
-    </div>
-
-    <div>
-        <label>State:</label>
-        <input type="text" {...register('state')} />
-        {errors.state && <p>{errors.state.message}</p>}
-    </div>
-
-    <div>
-        <label>ZIP:</label>
-        <input
-        type="text"
-        {...register('zip', {
-            pattern: {
-            value: /^\d{5}$/,
-            message: 'ZIP must be 5 digits',
-            },
-        })}
-        />
-        {errors.zip && <p>{errors.zip.message}</p>}
     </div>
 
     <div>

@@ -3,7 +3,7 @@ const {Client} = require('../models/Models');
 const generateToken = require('../utils/generateToken');
 
 const registerClient = asyncHandler(async (req, res) => {
-  const { name, email, address, city, state, zip, cell, allergies, birthday } = req.body;
+  const { name, email, cell, allergies, birthday } = req.body;
 
   const clientExists = await Client.findOne({ email });
   if (clientExists) {
@@ -14,10 +14,6 @@ const registerClient = asyncHandler(async (req, res) => {
   const client = await Client.create({
     name,
     email,
-    address,
-    city,
-    state,
-    zip,
     cell,
     allergies,
     birthday
@@ -28,10 +24,6 @@ const registerClient = asyncHandler(async (req, res) => {
       _id: client._id,
       name: client.name,
       email: client.email,
-      address: client.address,
-      city: client.city,
-      state: client.state,
-      zip: client.zip,
       cell: client.cell,
       allergies: client.allergies,
       birthday: client.birthday,
@@ -70,10 +62,6 @@ const updateClient = asyncHandler(async (req, res) => {
   // Loop through only fields you allow updating
   const allowedFields = [
     'email',
-    'address',
-    'city',
-    'state',
-    'zip',
     'cell',
     'allergies'
   ];
