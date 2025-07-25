@@ -29,10 +29,6 @@ function ClientCard(props){
             </Link>
             <h2>{client.name}</h2>
             <p><strong>Email:</strong> {client.email}</p>
-            <p><strong>Address:</strong> {client.address}</p>
-            <p><strong>City:</strong> {client.city}</p>
-            <p><strong>State:</strong> {client.state}</p>
-            <p><strong>ZIP:</strong> {client.zip}</p>
             <p><strong>Cell:</strong> {client.cell}</p>
             <p><strong>Allergies:</strong> {client.allergies || 'None'}</p>
             <p><strong>Birthday:</strong> {client.birthday}</p>

@@ -64,50 +64,6 @@ const ClientForm = () => {
       </div>
 
       <div>
-        <label>Address:</label>
-        <input
-          type="text"
-          autoComplete="off"
-          {...register('address', { required: 'Address is required' })}
-        />
-        {errors.address && <p>{errors.address.message}</p>}
-      </div>
-
-      <div>
-        <label>City:</label>
-        <input
-          type="text"
-          {...register('city', { required: 'City is required' })}
-        />
-        {errors.city && <p>{errors.city.message}</p>}
-      </div>
-
-      <div>
-        <label>State:</label>
-        <input
-          type="text"
-          {...register('state', { required: 'State is required' })}
-        />
-        {errors.state && <p>{errors.state.message}</p>}
-      </div>
-
-      <div>
-        <label>ZIP:</label>
-        <input
-          type="text"
-          autoComplete="off"
-          {...register('zip', {
-            required: 'ZIP code is required',
-            pattern: {
-              value: /^\d{5}$/,
-              message: 'ZIP must be 5 digits',
-            },
-          })}
-        />
-        {errors.zip && <p>{errors.zip.message}</p>}
-      </div>
-
-      <div>
         <label>Cell:</label>
         <input
           type="tel"

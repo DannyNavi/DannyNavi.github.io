@@ -53,14 +53,6 @@ const clientSchema = new mongoose.Schema({
     unique: true,
     match: /.+\@.+\..+/
   },
-  address: { type: String, required: true },
-  city: { type: String, required: true },
-  state: { type: String, required: true },
-  zip: {
-    type: String,
-    required: true,
-    match: /^\d{5}$/
-  },
   cell: {
     type: String,
     required: true,
