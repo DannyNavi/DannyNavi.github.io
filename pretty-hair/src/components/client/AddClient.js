@@ -53,7 +53,6 @@ const ClientForm = () => {
           type="email"
           autoComplete="off"
           {...register('email', {
-            required: 'Email is required',
             pattern: {
               value: /^\S+@\S+$/i,
               message: 'Invalid email address',

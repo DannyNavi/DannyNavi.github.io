@@ -5,7 +5,7 @@ const generateToken = require('../utils/generateToken');
 const registerClient = asyncHandler(async (req, res) => {
   const { name, email, cell, allergies, birthday } = req.body;
 
-  const clientExists = await Client.findOne({ email });
+  const clientExists = await Client.findOne({ cell });
   if (clientExists) {
     res.status(400);
     throw new Error('client already exists');
