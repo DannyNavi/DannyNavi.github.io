@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-function AddHaircutService(){
+function AddHairService(){
 const navigate = useNavigate();
 
   const {
@@ -22,11 +22,12 @@ const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     const payload = {
-      type: 'haircut',
+      type: 'hair service',
       client: data.clientId,
       date: data.date,
       comments: data.comments,
-      haircutDetails: {
+      hairServiceDetails: {
+        service: data.service
       },
     };
 
@@ -79,12 +80,23 @@ const navigate = useNavigate();
                 {errors.date && <p>{errors.date.message}</p>}
             </div>
 
+              <div>
+                <label>Hair Service:</label>
+                    <select {...register('service', { required: 'Service is required' })}>
+                        <option value="haircut">Haircut</option>
+                        <option value="haircut and style">Haircut and Style</option>
+                        <option value="shampoo and haircut">Shampoo and Haircut</option>
+
+                    </select>
+                    {errors.location && <p>{errors.location.message}</p>}
+                </div>
+
             <div>
                 <label>Comments:</label>
                 <textarea {...register('comments')} />
             </div>
 
-            <button type="submit">Submit Wax Service</button>
+            <button type="submit">Submit Hair Service</button>
 
 
             </form>
@@ -94,4 +106,4 @@ const navigate = useNavigate();
   )
 }
 
-export default AddHaircutService
+export default AddHairService

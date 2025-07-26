@@ -1,7 +1,7 @@
 import AddPermService from "./AddPermService"
 import AddDyeService from "./AddDyeService"
 import AddWaxService from "./AddWaxService"
-import AddHairTreatmentService from "./AddHairTreatmentService"
+import AddHairService from "./AddHairService"
 import "../../styles/AddService.css"
 
 function AddService(){
@@ -11,7 +11,7 @@ function AddService(){
       <AddPermService/>
       <AddDyeService/>
       <AddWaxService/>
-      <AddHairTreatmentService/>
+      <AddHairService/>
     </div>
   )
 }
