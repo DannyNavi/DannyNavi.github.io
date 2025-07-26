@@ -4,8 +4,6 @@ function ClientCard(props){
     const client = props.client
 
     const deleteClient = async (id) => {
-        if (!window.confirm('Are you sure you want to delete this client?')) return;
-
         try {
             const res = await fetch(`/api/clients/${id}`, {
                 method: 'DELETE',
