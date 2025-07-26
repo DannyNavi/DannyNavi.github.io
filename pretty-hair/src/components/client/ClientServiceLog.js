@@ -57,7 +57,7 @@ function ClientServiceLog(props){
         </div>
       )}
 
-      {service.type === 'dye' && service.dyeDetails && (
+      {service.type === 'color' && service.dyeDetails && (
         <div className='DyeServiceContainer'>
           <strong>Scalp Condition:</strong> {service.dyeDetails.scalpCondition} <br />
           <strong>Porosity:</strong> {service.dyeDetails.porosity} <br />
