@@ -85,6 +85,7 @@ const navigate = useNavigate();
                 <label>Hair Service:</label>
                     <select {...register('service', { required: 'Service is required' })}>
                         <option value="haircut">Haircut</option>
+                        <option value="style">Style</option>
                         <option value="haircut and style">Haircut and Style</option>
                         <option value="shampoo and haircut">Shampoo and Haircut</option>
 
