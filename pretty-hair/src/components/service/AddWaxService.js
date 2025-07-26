@@ -111,6 +111,11 @@ function AddWaxService(){
                         {errors.skinType && <p>{errors.skinType.message}</p>}
                 </div>
 
+                <div>
+                    <label>Comments:</label>
+                    <textarea {...register('comments')} />
+                </div>
+
                 <button type="submit">Submit Wax Service</button>
 
                 </form>

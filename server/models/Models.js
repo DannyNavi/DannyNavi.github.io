@@ -23,10 +23,19 @@ const waxDetailsSchema = new mongoose.Schema({
   skinType: {type: String, enum: ['normal', 'sensitive']},
   
 }, {_id: false});
+const haircutDetailsSchema = new mongoose.Schema({
+
+}, {_id: false});
+const shampooDetailsSchema = new mongoose.Schema({
+
+}, {_id: false});
+const styleDetailsSchema = new mongoose.Schema({
+
+}, {_id: false});
 
 // --- Service Schema ---
 const serviceSchema = new mongoose.Schema({
-  type: { type: String, enum: ['wax', 'perm', 'dye'], required: true },
+  type: { type: String, enum: ['wax', 'perm', 'color', 'haircut', 'shampoo', 'styling'], required: true },
   date: { type: Date, required: true },
   comments: { type: String },
   client: { type: mongoose.Schema.Types.ObjectId, ref: 'Client', required: true },
@@ -36,11 +45,23 @@ const serviceSchema = new mongoose.Schema({
   },
   dyeDetails: {
     type: dyeDetailsSchema,
-    required: function () { return this.type === 'dye'; },
+    required: function () { return this.type === 'color'; },
   },
   waxDetails: {
     type: waxDetailsSchema,
     required: function () { return this.type === 'wax'; },
+  },
+    haircutDetails: {
+    type: haircutDetailsSchema,
+    required: function () { return this.type === 'haircut'; },
+  },
+    shampooDetails: {
+    type: shampooDetailsSchema,
+    required: function () { return this.type === 'shampoo'; },
+  },
+    styleDetails: {
+    type: styleDetailsSchema,
+    required: function () { return this.type === 'style'; },
   },
 }, { timestamps: true });
 
