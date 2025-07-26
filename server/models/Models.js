@@ -24,7 +24,7 @@ const waxDetailsSchema = new mongoose.Schema({
   
 }, {_id: false});
 const hairServiceDetailsSchema = new mongoose.Schema({
-  service: {type: String, emum: ['haircut', 'style', 'haircut and style', 'shampoo and haircut']}
+  service: {type: String, enum: ['haircut', 'style', 'haircut and style', 'shampoo and haircut']}
 }, {_id: false});
 
 // --- Service Schema ---

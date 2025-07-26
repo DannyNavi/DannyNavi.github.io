@@ -82,6 +82,17 @@ function ClientServiceLog(props){
           )}
         </div>
       )}
+
+        {service.type === 'hair service' && service.hairServiceDetails && (
+        <div className='WaxServiceContainer'>
+          <strong>Service:</strong> {service.hairServiceDetails.service} <br />
+          {service.comments && (
+            <>
+              <strong>Comments:</strong> {service.comments} <br />
+            </>
+          )}
+        </div>
+      )}
           </li>
         ))}
       </ul>
