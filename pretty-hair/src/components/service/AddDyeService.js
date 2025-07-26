@@ -22,7 +22,7 @@ function AddDyeService() {
 
   const onSubmit = async (data) => {
     const payload = {
-      type: 'dye',
+      type: 'color',
       client: data.clientId,
       date: data.date,
       comments: data.comments,
@@ -131,7 +131,7 @@ function AddDyeService() {
           <textarea {...register('comments')} />
         </div>
 
-        <button type="submit">Submit Dye Service</button>
+        <button type="submit">Submit Color Service</button>
       </form>
     </div>
   );

@@ -30,6 +30,7 @@ const navigate = useNavigate();
         service: data.service
       },
     };
+    console.log(payload)
 
     try {
       const res = await fetch('/api/services', {
@@ -48,13 +49,13 @@ const navigate = useNavigate();
         navigate('/clientbook');
       }
     } catch (error) {
-      console.error('Failed to submit dye service:', error);
+      console.error('Failed to submit hair service:', error);
     }
   };
 
   return(
     <div>
-         <h2>Haircut</h2>
+         <h2>Hair Service</h2>
             <form className="clientform" onSubmit={handleSubmit(onSubmit)}>
                 <div>
                 <label>Client:</label>
