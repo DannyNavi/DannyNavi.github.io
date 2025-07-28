@@ -88,5 +88,20 @@ const deleteClient = asyncHandler(async (req, res) => {
   res.json({ message: 'Client deleted' });
 });
 
+const getClientFromPhone = async (req, res) => {
+  try {
+    const { cell } = req.params;
+    const client = await Client.findOne({ cell }).select('_id');
 
-module.exports = { registerClient, getAllClients, updateClient, deleteClient, getClientById};
+    if (!client) {
+      return res.status(404).json({ error: 'Client not found' });
+    }
+
+    res.json({ clientId: client._id });
+  } catch (error) {
+    console.error('Error retrieving client ID:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+module.exports = { registerClient, getAllClients, updateClient, deleteClient, getClientById, getClientFromPhone};
