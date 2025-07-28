@@ -10,7 +10,7 @@ function ClientFromPhone(){
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`/clients/getClientFromPhone/${phone}`);
+      const res = await fetch(`https://dannynavi-github-io.onrender.com/api/clients/getClientFromPhone/${phone}`);
       if (!res.ok) throw new Error('Client not found');
       const data = await res.json();
       navigate(`/viewclient/${data.id}`);
