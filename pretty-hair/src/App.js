@@ -3,7 +3,7 @@ import './styles/App.css';
 import Logo from './components/Logo';
 import Home from './components/Home';
 import ClientBook from './components/client/ClientBook';
-import ClientCard from './components/client/ClientCard';
+import QueryClient from './components/client/QueryClient';
 import AddClient from './components/client/AddClient'
 import EditClient from './components/client/EditClient';
 import AddService from './components/service/AddService';
