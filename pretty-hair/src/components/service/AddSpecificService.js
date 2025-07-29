@@ -14,7 +14,7 @@ export default function AddSpecificServic(props){
     const { id } = useParams();
     
   useEffect(() => {
-    fetch(`https://dannynavi-github-io.onrender.com/api/clients/${id}`)
+    fetch(`/api/clients/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch client');
         return res.json();
@@ -22,6 +22,10 @@ export default function AddSpecificServic(props){
       .then((data) => setClient(data))
       .catch((err) => setError(err.message));
   }, [id]);
+
+  
+    if (error) return <p>{error}</p>;
+    if (!client) return <p>Loading client info...</p>;
 
     return (
         <div className="AddServiceContainer">
