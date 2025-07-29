@@ -10,13 +10,14 @@ function Logo(){
                 className="Logo"
                 to="/"
                 >
-                <h1>Pretty Hair</h1>
+                <h2>Pretty Hair</h2>
             </Link>
 
             <div className="NavLinks">
+                <Link className="App-link" to="/phonetest">Search Client</Link>
                 <Link className="App-link" to="/clientbook">Client Book</Link>
-                <Link className="App-link" to="/addclient">Add a Client</Link>
-                <Link className="App-link" to="/addservice">Add a Service</Link>
+                <Link className="App-link" to="/addclient">Add Client</Link>
+                <Link className="App-link" to="/addservice">Add Service</Link>
             </div>
         </div>
     )

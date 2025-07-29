@@ -1,20 +1,31 @@
 .AddServiceContainer{
     text-align: left;
     padding-left: 40px;
-    color: teal;
+    color: #415E72;
     font-family: "Seymour One", sans-serif;
 }
 
 .clientform{
     font-size: x-large;
     padding-bottom: 40px;
-    border-bottom: 10px solid chocolate;
+    border-bottom: 3px solid #F3E2D4;
 }
 
 input{
     width: 20%;
+    background-color: #F3E2D4;
+}
+
+select{
+    background-color: #F3E2D4;
+    border-radius: 5px;
 }
 
 h2{
     text-align: left;
+}
+
+textarea{
+    background-color: #F3E2D4;
+    border-radius: 5px;
 }

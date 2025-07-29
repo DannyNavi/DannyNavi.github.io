@@ -2,11 +2,11 @@
 
 .App {
   text-align: center;
-  background-color: antiquewhite;
+  background-color: #FFF2E3;
 }
 
 body{
-  background-color: antiquewhite;
+  background-color: #FFF2E3;
 }
 
 /* @media (prefers-reduced-motion: no-preference) {
@@ -31,24 +31,23 @@ body{
   text-align: left;
   font-family: "Seymour One", sans-serif;  
   background-color: white;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 3px solid burlywood;
-  background-color: antiquewhite;
+  background-color: #FFF2E3;
 }
 
 .App-link{
   text-decoration: none;
-  color: teal;
-  padding: 20px;
+  color: #C5B0CD;
+  padding-right: 20px;
   font-size: large;
 }
 
 .Logo{
   text-decoration: none;
   justify-content: left;
-  color: teal;
+  color: #C5B0CD;
 
 }
 

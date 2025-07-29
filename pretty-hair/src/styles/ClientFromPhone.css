@@ -1,0 +1,24 @@
+input{
+    font-size: x-large;
+    background-color: #F3E2D4;
+    border-radius: 8px;
+    border: none;
+    color: #415E72;
+}
+
+label{
+    color: #C5B0CD;
+    font-size: x-large;
+}
+
+button{
+    font-size: medium;
+    border: none;
+    color: white;
+    background-color: #C5B0CD;
+    border-radius: 8px;
+}
+
+.PhoneInputContainer{
+    text-align: center;
+}

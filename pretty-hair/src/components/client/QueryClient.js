@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import ClientCard from './ClientCard';
+import "../../styles/clientbookstyles.css"
 
 export default function QueryClient() {
   const { id } = useParams();
@@ -20,10 +22,8 @@ export default function QueryClient() {
   if (!client) return <p>Loading...</p>;
 
   return (
-    <div>
-      <h2>{client.name}</h2>
-      <p>Phone: {client.cell}</p>
-      <p>Email: {client.email}</p>
-    </div>
-  );
+        <div className='ClientBookContainer'>
+            <ClientCard client={client} key={client._id}/>
+        </div>
+    )
 }

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import "../../styles/ClientFromPhone.css"
+
 
 function ClientFromPhone(){
 
@@ -10,7 +12,7 @@ function ClientFromPhone(){
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`https://dannynavi-github-io.onrender.com/api/clients/getClientFromPhone/${phone}`);
+      const res = await fetch(`/api/clients/getClientFromPhone/${phone}`);
       if (!res.ok) throw new Error('Client not found');
       const data = await res.json();
       navigate(`/viewclient/${data.clientId}`);
@@ -21,15 +23,20 @@ function ClientFromPhone(){
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        placeholder="Enter phone number"
-      />
-      <button type="submit">Find Client</button>
-      {error && <p>{error}</p>}
-    </form>
+    <div>
+        <form onSubmit={handleSubmit}>
+            <div className='PhoneInputContainer'>
+                <label>Phone: </label>
+                <input
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="Enter phone number"
+                />
+            </div>
+            <button type="submit">Find Client</button>
+            {error && <p>{error}</p>}
+        </form>
+    </div>
   );
 }
 export default ClientFromPhone
