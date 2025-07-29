@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 import ClientServiceLog from "./ClientServiceLog";
 function ClientCard(props){
     const client = props.client
@@ -30,6 +30,9 @@ function ClientCard(props){
             <p><strong>Cell:</strong> {client.cell}</p>
             <p><strong>Allergies:</strong> {client.allergies || 'None'}</p>
             <p><strong>Birthday:</strong> {client.birthday}</p>
+            <Link to={`/addspecificservice/${client._id}`}>
+                <button>Add Service</button>
+            </Link>
             <ClientServiceLog clientId={client._id}/>
         </div>
     )

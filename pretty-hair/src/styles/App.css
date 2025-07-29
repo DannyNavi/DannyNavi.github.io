@@ -55,7 +55,7 @@ body{
   padding-left: 40px;
   font-family: "Seymour One", sans-serif;
   text-align: left;
-  color: teal;
+  color: #C5B0CD;
 }
 
 .opening{
@@ -74,4 +74,8 @@ body{
 .closed{
   font-size: large;
   padding-left: 150px;
+}
+
+h2{
+  color: #C5B0CD;
 }

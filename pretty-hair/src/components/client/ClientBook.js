@@ -6,7 +6,7 @@ function ClientBook() {
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
-    fetch('/api/clients') // ✅ Make sure this is the correct route
+    fetch('https://dannynavi-github-io.onrender.com/api/clients') // ✅ Make sure this is the correct route
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
