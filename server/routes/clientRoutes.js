@@ -16,6 +16,8 @@ router.get('/getClientFromPhone/:cell', getClientFromPhone)
 
 
 router.get('/', getAllClients); // GET /api/clients
+router.get('/:id', getClientById);
+
 router.put('/:id', updateClient);
 router.delete('/:id', deleteClient);
 
