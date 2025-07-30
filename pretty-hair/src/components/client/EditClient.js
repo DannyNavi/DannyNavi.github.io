@@ -13,7 +13,7 @@ function EditClient(){
         .then(res => res.json())
         .then(data => {
             // Populate only editable fields
-            ['email','cell','allergies','services']
+            ['name','email','cell','allergies','services']
             .forEach(field => setValue(field, data[field] || ''));
         })
         .catch(err => console.error(err));
@@ -33,6 +33,16 @@ function EditClient(){
     };
     return(
 <form className="clientform" onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+    <div>
+        <label>Name</label>
+        <input
+          type="text"
+          autoComplete="off"
+          {...register('name', { required: 'Name is required' })}
+        />
+        {errors.name && <p>{errors.name.message}</p>}
+    </div>
+    
     <div>
         <label>Email:</label>
         <input
