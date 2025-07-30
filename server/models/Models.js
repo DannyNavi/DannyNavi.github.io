@@ -13,7 +13,7 @@ const dyeDetailsSchema = new mongoose.Schema({
   porosity: { type: String, enum: ['extra porous', 'porous', 'normal'], required: true },
   colorTreatment: {
     type: String,
-    enum: ['semi permanent', 'toned', 'highlights', 'lowlights', 'bleached', 'henna', 'base', 'other'],
+    enum: ['semi permanent', 'toned', 'highlights', 'lowlights', 'bleached', 'permanent', 'highlights and color', 'other'],
     required: true
   },
 }, { _id: false });

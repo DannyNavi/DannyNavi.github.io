@@ -104,13 +104,13 @@ export default function SpecificDyeService() {
             })}
           >
             <option value="">Select treatment</option>
+            <option value="permanent">Permanent</option>
             <option value="semi permanent">Semi-Permanent</option>
             <option value="toned">Toned</option>
             <option value="highlights">Highlights</option>
             <option value="lowlights">Lowlights</option>
             <option value="bleached">Bleached</option>
-            <option value="henna">Henna</option>
-            <option value="base">Base</option>
+            <option value="highlights and color">Highlight and Color</option>
             <option value="other">Other</option>
           </select>
           {errors.colorTreatment && <p>{errors.colorTreatment.message}</p>}
