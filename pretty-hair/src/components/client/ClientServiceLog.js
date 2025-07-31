@@ -42,7 +42,7 @@ function ClientServiceLog(props){
         {services.map(service => (
           <li key={service._id}>
             <strong>Type:</strong> {service.type} <br />
-            <strong>Date:</strong> {new Date(service.date).toLocaleDateString()} <br />
+            <strong>Date:</strong> {new Date(service.date).toISOString().split("T")[0]} <br />
                   {service.type === 'perm' && service.permDetails && (
         <div className='PermServiceContainer'>
           <strong>Hair Condition:</strong> {service.permDetails.hairCondition} <br />
