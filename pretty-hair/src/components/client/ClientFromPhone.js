@@ -16,7 +16,6 @@ function ClientFromPhone(){
       if (!res.ok) throw new Error('Client not found');
       const data = await res.json();
       navigate(`/viewclient/${data.clientId}`);
-      console.log(data)
     } catch (err) {
       setError('Client not found.');
     }

@@ -25,7 +25,8 @@ const ClientForm = () => {
 
         const result = await response.json();
         console.log("Submitting:", data);
-        navigate('/clientbook');
+        navigate(`/viewclient/${data.clientId}`);
+
 
 
 
