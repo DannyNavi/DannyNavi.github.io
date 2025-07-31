@@ -25,7 +25,10 @@ const ClientForm = () => {
 
         const result = await response.json();
         console.log("Submitting:", data);
-        navigate(`/viewclient/${data.clientId}`);
+          const res = await fetch(`/api/clients/getClientFromPhone/${data.cell}`);
+          if (!res.ok) throw new Error('Client not found');
+          const client = await res.json();
+          navigate(`/viewclient/${client.clientId}`);
 
 
 
