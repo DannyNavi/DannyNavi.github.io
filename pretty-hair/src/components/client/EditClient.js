@@ -27,7 +27,7 @@ function EditClient(){
         })
         .then(res => {
             if (!res.ok) throw new Error('Update failed');
-            navigate('/clientbook');
+            navigate(`/viewclient/${id}`);
         })
         .catch(err => alert(err.message));
     };
