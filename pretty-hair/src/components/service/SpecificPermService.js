@@ -52,7 +52,7 @@ export default function SpecificPermService(){
         console.error('Submission failed:', errorData);
       } else {
         const result = await res.json();
-        navigate('/clientbook');
+        navigate(`/viewclient/${client.clientId}`);
 
 
       }

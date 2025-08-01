@@ -45,7 +45,7 @@ export default function SpecificHairService() {
         console.error('Submission failed:', errorData);
       } else {
         const result = await res.json();
-        navigate('/clientbook');
+        navigate(`/viewclient/${client.clientId}`);
       }
     } catch (error) {
       console.error('Failed to submit hair service:', error);

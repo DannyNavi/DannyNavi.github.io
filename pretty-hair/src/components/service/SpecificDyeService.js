@@ -49,7 +49,7 @@ export default function SpecificDyeService() {
         console.error('Submission failed:', errorData);
       } else {
         const result = await res.json();
-        navigate('/clientbook');
+        navigate(`/viewclient/${client.clientId}`);
       }
     } catch (error) {
       console.error('Failed to submit dye service:', error);
