@@ -46,7 +46,7 @@ function AddWaxService(){
         console.error('Submission failed:', errorData);
       } else {
         const result = await res.json();
-        navigate(`/viewclient/${client.clientId}`);
+        navigate(`/viewclient/${data.clientId}`);
 
 
       }
