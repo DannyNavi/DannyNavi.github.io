@@ -12,7 +12,6 @@ function EditClient(){
         fetch(`/api/clients/${id}`)
         .then(res => res.json())
         .then(data => {
-            // Populate only editable fields
             ['name','email','cell','allergies','services']
             .forEach(field => setValue(field, data[field] || ''));
         })

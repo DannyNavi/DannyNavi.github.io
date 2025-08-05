@@ -25,7 +25,7 @@ function ClientFromPhone(){
     <div>
         <form onSubmit={handleSubmit}>
             <div className='PhoneInputContainer'>
-                <label>Phone: </label>
+                <label className='client-phone'>Phone: </label>
                 <input
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}

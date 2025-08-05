@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import "../../styles/ClientServiceLog.css"
+import "../../styles/ClientServiceLog.css";
 
-
-function ClientServiceLog(props){
-  const clientId = props.clientId
-
+function ClientServiceLog({ clientId }) {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedTypes, setSelectedTypes] = useState([]); // array of selected types
 
   useEffect(() => {
     if (!clientId) return;
@@ -30,75 +28,117 @@ function ClientServiceLog(props){
     fetchServices();
   }, [clientId]);
 
+  const formatDate = (date) => new Date(date).toISOString().split("T")[0];
+
+  const renderComments = (comments) => (
+    comments ? (
+      <>
+        <strong>Comments:</strong> {comments} <br />
+      </>
+    ) : null
+  );
+
+  const renderServiceDetails = (service) => {
+    const { type, permDetails, dyeDetails, waxDetails, hairServiceDetails, comments } = service;
+
+    switch (type) {
+      case 'perm':
+        if (!permDetails) return null;
+        return (
+          <div className="PermServiceContainer">
+            <strong>Hair Condition:</strong> {permDetails.hairCondition} <br />
+            <strong>Scalp Condition:</strong> {permDetails.scalpCondition} <br />
+            <strong>Porosity:</strong> {permDetails.porosity} <br />
+            <strong>Perm Type:</strong> {permDetails.type} <br />
+            {renderComments(comments)}
+          </div>
+        );
+
+      case 'color':
+        if (!dyeDetails) return null;
+        return (
+          <div className="DyeServiceContainer">
+            <strong>Scalp Condition:</strong> {dyeDetails.scalpCondition} <br />
+            <strong>Porosity:</strong> {dyeDetails.porosity} <br />
+            <strong>Dye Type:</strong> {dyeDetails.type} <br />
+            <strong>Color Treatment:</strong> {dyeDetails.colorTreatment} <br />
+            {renderComments(comments)}
+          </div>
+        );
+
+      case 'wax':
+        if (!waxDetails) return null;
+        return (
+          <div className="WaxServiceContainer">
+            <strong>Location:</strong> {waxDetails.location} <br />
+            <strong>Skin Type:</strong> {waxDetails.skinType} <br />
+            {renderComments(comments)}
+          </div>
+        );
+
+      case 'hair service':
+        if (!hairServiceDetails) return null;
+        return (
+          <div className="HairServiceContainer">
+            <strong>Service:</strong> {hairServiceDetails.service} <br />
+            {renderComments(comments)}
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  const handleCheckboxChange = (type) => {
+    setSelectedTypes(prev =>
+      prev.includes(type)
+        ? prev.filter(t => t !== type)
+        : [...prev, type]
+    );
+  };
+
+  const allServiceTypes = ['perm', 'color', 'wax', 'hair service'];
+
   if (loading) return <p>Loading services...</p>;
   if (error) return <p>Error: {error}</p>;
-
   if (services.length === 0) return <p>No services found for this client.</p>;
 
   return (
     <div>
       <h2>Services</h2>
-      <ul>
-        {services.map(service => (
-          <li key={service._id}>
-            <strong>Type:</strong> {service.type} <br />
-            <strong>Date:</strong> {new Date(service.date).toISOString().split("T")[0]} <br />
-                  {service.type === 'perm' && service.permDetails && (
-        <div className='PermServiceContainer'>
-          <strong>Hair Condition:</strong> {service.permDetails.hairCondition} <br />
-          <strong>Scalp Condition:</strong> {service.permDetails.scalpCondition} <br />
-          <strong>Porosity:</strong> {service.permDetails.porosity} <br />
-          <strong>Perm Type:</strong> {service.permDetails.type} <br />
-          {service.comments && (
-            <>
-              <strong>Comments:</strong> {service.comments} <br />
-            </>
-          )}        
-        </div>
-      )}
 
-      {service.type === 'color' && service.dyeDetails && (
-        <div className='DyeServiceContainer'>
-          <strong>Scalp Condition:</strong> {service.dyeDetails.scalpCondition} <br />
-          <strong>Porosity:</strong> {service.dyeDetails.porosity} <br />
-          <strong>Dye Type:</strong> {service.dyeDetails.type} <br />
-          <strong>Color Treatment:</strong> {service.dyeDetails.colorTreatment} <br />
-          {service.comments && (
-            <>
-              <strong>Comments:</strong> {service.comments} <br />
-            </>
-          )}        
-        </div>
-      )}
-
-      {service.type === 'wax' && service.waxDetails && (
-        <div className='WaxServiceContainer'>
-          <strong>Location:</strong> {service.waxDetails.location} <br />
-          <strong>Skin Type:</strong> {service.waxDetails.skinType} <br />
-          {service.comments && (
-            <>
-              <strong>Comments:</strong> {service.comments} <br />
-            </>
-          )}
-        </div>
-      )}
-
-        {service.type === 'hair service' && service.hairServiceDetails && (
-        <div className='WaxServiceContainer'>
-          <strong>Service:</strong> {service.hairServiceDetails.service} <br />
-          {service.comments && (
-            <>
-              <strong>Comments:</strong> {service.comments} <br />
-            </>
-          )}
-        </div>
-      )}
-          </li>
+      <div className="ServicesBoxContainer">
+        {allServiceTypes.map(type => (
+          <label key={type} style={{ display: 'block' }}>
+            <input
+              className="typesBox"
+              type="checkbox"
+              value={type}
+              checked={selectedTypes.includes(type)}
+              onChange={() => handleCheckboxChange(type)}
+            />
+            <span className="types">
+            {type[0].toUpperCase() + type.slice(1)}
+            </span>
+          </label>
         ))}
+      </div>
+
+      <ul>
+        {selectedTypes.length > 0 &&
+          services
+            .filter(service => selectedTypes.includes(service.type))
+            .map(service => (
+              <li key={service._id}>
+                <strong>Type:</strong> {service.type} <br />
+                <strong>Date:</strong> {formatDate(service.date)} <br />
+                {renderServiceDetails(service)}
+              </li>
+            ))}
       </ul>
     </div>
   );
 }
 
-
-export default ClientServiceLog
+export default ClientServiceLog;

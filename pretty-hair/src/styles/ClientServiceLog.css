@@ -9,7 +9,6 @@ ul {
 
 li{
     padding-bottom: 15px;
-    border-right: 1px #415E72 solid;
     padding-left: 30px;
 }
 
@@ -36,4 +35,16 @@ li{
 .client-card{
     width: 30%;
     font-size: medium;
+}
+
+.ServicesBoxContainer{
+    font-size: small;
+}
+
+.types{
+    font-size: small;
+}
+
+.typesBox{
+    margin: 0;
 }

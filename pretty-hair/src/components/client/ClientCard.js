@@ -1,5 +1,10 @@
 import {Link, Navigate} from "react-router-dom";
 import ClientServiceLog from "./ClientServiceLog";
+import { GoTrash } from "react-icons/go";
+import { FaEdit } from "react-icons/fa";
+import "../../styles/ClientCard.css"
+
+
 function ClientCard(props){
     const client = props.client
 
@@ -21,11 +26,15 @@ function ClientCard(props){
 
     return(
         <div key={client._id} className="client-card" style={{ border: '1px solid #ccc', padding: '1rem', margin: '1rem 0' }}>
-            <button onClick={() => deleteClient(client._id)}>Delete</button>
-            <Link to={`/editclient/${client._id}`}>
-                <button>Edit</button>
-            </Link>
-            <h2>{client.name}</h2>
+            <button className="deleteButton" onClick={() => deleteClient(client._id)}><GoTrash style={{paddingTop: "4px"}}/></button>
+                <div className="editButtonContainer">
+                    <Link to={`/editclient/${client._id}`}>
+                        <button className="editButton" ><FaEdit /></button>
+                    </Link>
+                </div>
+            <h2 >{client.name}
+
+            </h2>
             <p><strong>Email:</strong> {client.email}</p>
             <p><strong>Cell:</strong> {client.cell}</p>
             <p><strong>Allergies:</strong> {client.allergies || 'None'}</p>
