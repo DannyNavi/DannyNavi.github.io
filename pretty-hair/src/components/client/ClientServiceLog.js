@@ -42,7 +42,7 @@ function ClientServiceLog({ clientId }) {
 
   const deleteService = async (id) => {
     try {
-      const res = await fetch(`/api/services?client=${id}`, {
+      const res = await fetch(`/api/services/${id}`, {
         method: 'DELETE',
       });
 
