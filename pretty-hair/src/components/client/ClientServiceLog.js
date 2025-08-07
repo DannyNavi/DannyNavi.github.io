@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "../../styles/ClientServiceLog.css";
+import { GoTrash } from "react-icons/go";
+
 
 function ClientServiceLog({ clientId }) {
   const [services, setServices] = useState([]);
@@ -37,6 +39,23 @@ function ClientServiceLog({ clientId }) {
       </>
     ) : null
   );
+
+  const deleteService = async (id) => {
+    try {
+      const res = await fetch(`/api/services?client=${id}`, {
+        method: 'DELETE',
+      });
+
+      window.location.reload()
+      if(!res.ok) throw new Error('Failed to delete service');
+      } catch (err) {
+      console.error(err );
+      console.log(id)
+      alert('Error')
+
+    }
+
+  };
 
   const renderServiceDetails = (service) => {
     const { type, permDetails, dyeDetails, waxDetails, hairServiceDetails, comments } = service;
@@ -131,6 +150,7 @@ function ClientServiceLog({ clientId }) {
             .filter(service => selectedTypes.includes(service.type))
             .map(service => (
               <li key={service._id}>
+                <button className="deleteButton" onClick={() => deleteService(service._id)}><GoTrash style={{paddingTop: "4px"}}/></button>
                 <strong>Type:</strong> {service.type} <br />
                 <strong>Date:</strong> {formatDate(service.date)} <br />
                 {renderServiceDetails(service)}
