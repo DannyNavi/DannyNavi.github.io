@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "../../styles/ClientServiceLog.css";
 import { GoTrash } from "react-icons/go";
+import { useNavigate } from 'react-router-dom';
 
 
 function ClientServiceLog({ clientId }) {
@@ -16,7 +17,7 @@ function ClientServiceLog({ clientId }) {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`https://dannynavi-github-io.onrender.com/api/services?client=${clientId}`);
+        const response = await fetch(`/api/services?client=${clientId}`);
         if (!response.ok) throw new Error('Failed to fetch services');
         const data = await response.json();
         setServices(data);
@@ -42,16 +43,17 @@ function ClientServiceLog({ clientId }) {
 
   const deleteService = async (id) => {
     try {
-      const res = await fetch(`https://dannynavi-github-io.onrender.com/api/services/${id}`, {
+      const res = await fetch(`/api/services/${clientId}`, {
         method: 'DELETE',
       });
 
-      // window.location.reload()
+      const navigate = useNavigate()
+
+      navigate(`/viewclient/${id}`)
       if(!res.ok) throw new Error('Failed to delete service');
       } catch (err) {
       console.error(err );
       console.log(id)
-      alert('Error')
 
     }
 

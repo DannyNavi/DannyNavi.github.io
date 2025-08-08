@@ -9,7 +9,7 @@ export default function QueryClient() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch(`https://dannynavi-github-io.onrender.com/api/clients/${id}`)
+    fetch(`/api/clients/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch client');
         return res.json();
