@@ -9,7 +9,8 @@ function ClientServiceLog({ clientId }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedTypes, setSelectedTypes] = useState([]); // array of selected types
-
+  
+  const navigate = useNavigate
   useEffect(() => {
     if (!clientId) return;
 
@@ -46,8 +47,6 @@ function ClientServiceLog({ clientId }) {
       const res = await fetch(`/api/services/${clientId}`, {
         method: 'DELETE',
       });
-
-      const navigate = useNavigate()
 
       navigate(`/viewclient/${id}`)
       if(!res.ok) throw new Error('Failed to delete service');
