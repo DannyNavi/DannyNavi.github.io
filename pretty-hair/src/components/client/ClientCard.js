@@ -17,7 +17,6 @@ function ClientCard(props){
             window.location.reload()
 
             if (!res.ok) throw new Error('Failed to delete client');
-            // You can call a prop function here to refresh the client list if needed
             } catch (err) {
             console.error(err);
             alert('An error occurred while deleting the client');
