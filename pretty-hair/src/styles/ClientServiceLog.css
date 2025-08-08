@@ -31,6 +31,12 @@ li{
     margin: 15px;
 }
 
+.HairServiceContainer{
+    text-align: left;
+    padding-bottom: 20px;
+    margin: 15px;
+}
+
 
 .client-card{
     width: 30%;
@@ -47,4 +53,13 @@ li{
 
 .typesBox{
     margin: 0;
+}
+
+.topLine{
+    overflow-x: hidden;
+
+}
+
+.deleteButton{
+    margin-left: 30px;
 }

@@ -48,16 +48,14 @@ const getServiceById = asyncHandler(async (req, res) => {
   res.json(service);
 });
 
-// Delete a service
 const deleteService = asyncHandler(async (req, res) => {
-  const service = await Service.findById(req.params.id);
+  const service = await Service.findByIdAndDelete(req.params.id);
 
   if (!service) {
     res.status(404);
     throw new Error('Service not found');
   }
 
-  await service.remove();
   res.json({ message: 'Service removed' });
 });
 

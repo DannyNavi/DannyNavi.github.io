@@ -10,7 +10,7 @@ function ClientCard(props){
 
     const deleteClient = async (id) => {
         try {
-            const res = await fetch(`/api/clients/${id}`, {
+            const res = await fetch(`https://dannynavi-github-io.onrender.com/api/clients/${id}`, {
                 method: 'DELETE',
             });
 

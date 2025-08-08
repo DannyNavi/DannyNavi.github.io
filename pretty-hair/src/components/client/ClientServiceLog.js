@@ -16,7 +16,7 @@ function ClientServiceLog({ clientId }) {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`/api/services?client=${clientId}`);
+        const response = await fetch(`https://dannynavi-github-io.onrender.com/api/services?client=${clientId}`);
         if (!response.ok) throw new Error('Failed to fetch services');
         const data = await response.json();
         setServices(data);
@@ -42,11 +42,11 @@ function ClientServiceLog({ clientId }) {
 
   const deleteService = async (id) => {
     try {
-      const res = await fetch(`/api/services/${id}`, {
+      const res = await fetch(`https://dannynavi-github-io.onrender.com/api/services/${id}`, {
         method: 'DELETE',
       });
 
-      window.location.reload()
+      // window.location.reload()
       if(!res.ok) throw new Error('Failed to delete service');
       } catch (err) {
       console.error(err );
@@ -150,9 +150,13 @@ function ClientServiceLog({ clientId }) {
             .filter(service => selectedTypes.includes(service.type))
             .map(service => (
               <li key={service._id}>
-                <button className="deleteButton" onClick={() => deleteService(service._id)}><GoTrash style={{paddingTop: "4px"}}/></button>
-                <strong>Type:</strong> {service.type} <br />
-                <strong>Date:</strong> {formatDate(service.date)} <br />
+                <div>
+                  <button className="deleteButton" onClick={() => deleteService(service._id)}>×</button>
+                  <div className='topLine'>
+                    <strong>Type:</strong> {service.type} <br />
+                    <strong>Date:</strong> {formatDate(service.date)} <br />
+                  </div>
+                </div>
                 {renderServiceDetails(service)}
               </li>
             ))}
