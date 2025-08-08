@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import "../../styles/ClientServiceLog.css";
-import { GoTrash } from "react-icons/go";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -44,11 +43,11 @@ function ClientServiceLog({ clientId }) {
 
   const deleteService = async (id) => {
     try {
-      const res = await fetch(`/api/services/${clientId}`, {
+      const res = await fetch(`/api/services/${id}`, {
         method: 'DELETE',
       });
 
-      navigate(`/viewclient/${id}`)
+      navigate(`/viewclient/${clientId}`)
       if(!res.ok) throw new Error('Failed to delete service');
       } catch (err) {
       console.error(err );
