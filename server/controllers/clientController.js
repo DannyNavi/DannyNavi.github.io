@@ -3,7 +3,7 @@ const {Client} = require('../models/Models');
 const generateToken = require('../utils/generateToken');
 
 const registerClient = asyncHandler(async (req, res) => {
-  const { name, email, cell, allergies, birthday } = req.body;
+  const { name, email, cell, allergies} = req.body;
 
   const clientExists = await Client.findOne({ cell });
   if (clientExists) {
@@ -16,7 +16,6 @@ const registerClient = asyncHandler(async (req, res) => {
     email,
     cell,
     allergies,
-    birthday
   });
 
   if (client) {
@@ -26,7 +25,6 @@ const registerClient = asyncHandler(async (req, res) => {
       email: client.email,
       cell: client.cell,
       allergies: client.allergies,
-      birthday: client.birthday,
       token: generateToken(client._id),
     });
   } else {

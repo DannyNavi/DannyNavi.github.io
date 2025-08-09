@@ -64,11 +64,6 @@ const clientSchema = new mongoose.Schema({
     match: /^[0-9\-+\s()]{7,15}$/
   },
   allergies: { type: String },
-  birthday: {
-    type: String,
-    required: true,
-    match: /^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
-  }
 }, {
   timestamps: true,
   toJSON: { virtuals: true },

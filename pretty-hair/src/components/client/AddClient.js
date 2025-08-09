@@ -88,23 +88,6 @@ const ClientForm = () => {
         {errors.allergies && <p>{errors.allergies.message}</p>}
       </div>
 
-      <div>
-        <label>Birthday (MM-DD):</label>
-        <input
-          type="text"
-          autoComplete="off"
-          placeholder="MM-DD"
-          {...register('birthday', {
-            required: 'Birthday is required',
-            pattern: {
-              value: /^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/,
-              message: 'Format must be MM-DD',
-            },
-          })}
-        />
-        {errors.birthday && <p>{errors.birthday.message}</p>}
-      </div>
-
       <button type="submit">Submit</button>
     </form>
   );

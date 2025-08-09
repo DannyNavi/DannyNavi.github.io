@@ -37,7 +37,6 @@ function ClientCard(props){
             <p><strong>Email:</strong> {client.email}</p>
             <p><strong>Cell:</strong> {client.cell}</p>
             <p><strong>Allergies:</strong> {client.allergies || 'None'}</p>
-            <p><strong>Birthday:</strong> {client.birthday}</p>
             <Link to={`/addspecificservice/${client._id}`}>
                 <button>Add Service</button>
             </Link>
