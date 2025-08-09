@@ -9,7 +9,7 @@ function ClientServiceLog({ clientId }) {
   const [error, setError] = useState(null);
   const [selectedTypes, setSelectedTypes] = useState([]); // array of selected types
   
-  const navigate = useNavigate
+  const navigate = useNavigate()
   useEffect(() => {
     if (!clientId) return;
 
@@ -50,7 +50,6 @@ function ClientServiceLog({ clientId }) {
       navigate(`/redirect/${clientId}`)
       if(!res.ok) throw new Error('Failed to delete service');
       } catch (err) {
-      console.error(err );
       console.log(id)
 
     }
