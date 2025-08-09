@@ -8,7 +8,8 @@ import AddClient from './components/client/AddClient'
 import EditClient from './components/client/EditClient';
 import AddService from './components/service/AddService';
 import ClientFromPhone from './components/client/ClientFromPhone';
-import  AddSpecificService  from './components/service/AddSpecificService';
+import AddSpecificService  from './components/service/AddSpecificService';
+import RedirectPage from './components/client/RedirectPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/viewclient/:id" element={<QueryClient />}/>
           <Route path="/addservice" element={<AddService/>}/>
           <Route path="/addspecificservice/:id" element={<AddSpecificService />}/>
+          <Route path="/redirect/:id" element={<RedirectPage/>} />
         </Routes>
       </BrowserRouter>
     </div>

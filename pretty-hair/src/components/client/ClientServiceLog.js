@@ -47,7 +47,7 @@ function ClientServiceLog({ clientId }) {
         method: 'DELETE',
       });
 
-      navigate(`/viewclient/${clientId}`)
+      navigate(`/redirect/${clientId}`)
       if(!res.ok) throw new Error('Failed to delete service');
       } catch (err) {
       console.error(err );
