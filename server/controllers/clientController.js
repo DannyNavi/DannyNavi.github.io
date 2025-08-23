@@ -59,6 +59,7 @@ const updateClient = asyncHandler(async (req, res) => {
 
   // Loop through only fields you allow updating
   const allowedFields = [
+    'name',
     'email',
     'cell',
     'allergies'
